@@ -1,5 +1,3 @@
-// @flow
-
 const {createMapStateToPropsSnapshot} = require('./index.js');
 
 describe('exports', () => {

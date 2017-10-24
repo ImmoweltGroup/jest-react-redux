@@ -1,5 +1,7 @@
 // @flow
 
+declare var expect: any;
+declare var jest: any;
 type OptsType = {
   mapStateToProps: Function,
   selectors?: {

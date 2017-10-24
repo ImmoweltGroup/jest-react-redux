@@ -4,6 +4,7 @@
 #
 [ignore]
 .*\/node_modules\/(?!(log-fancy|@immowelt)\/).*
+<PROJECT_ROOT>/dist/.*
 
 [include]
 
