@@ -13,12 +13,10 @@ git clone https://github.com/your-username/jest-react-redux.git
 ```
 
 ### Building
-
 Running the `build` task will transpile the code and move all flow annotations into separate files.
 ```
 npm run build
 ```
-
 
 ### Testing, Type-Checking with Flow and Linting
 To run the tests:
@@ -42,7 +40,6 @@ npm run flow
 ```
 
 ### New Features
-
 Please open an issue with a proposal for a new feature or refactoring before starting on the work. We don't want you to waste your efforts on a pull request that we won't want to accept.
 
 ## Commit guidelines and semantic release
