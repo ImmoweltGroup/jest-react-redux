@@ -54,6 +54,9 @@ function createMapStateToPropsSnapshot(opts: OptsType) {
       .mockImplementation(implementation);
   });
 
+  //
+  // Execute the `mapStateToProps` to test if it works correctly and to collect all informations on the spy instances of all selectors.
+  //
   expect(() => {
     const results = mapStateToProps(state, ownProps);
 
@@ -70,11 +73,18 @@ function createMapStateToPropsSnapshot(opts: OptsType) {
   selectorKeys.forEach(selectorKey => {
     const spy = selectorSpiesByKey[selectorKey];
     const callCount = spy.mock.calls.length;
-    const args = spy.mock.calls;
+    const argsByCallCount = spy.mock.calls.reduce(
+      (argsByCallCount, args, index) => {
+        argsByCallCount[index] = args;
+
+        return argsByCallCount;
+      },
+      {}
+    );
 
     calls[selectorKey] = {
       callCount,
-      args
+      argsByCallCount
     };
 
     spy.mockRestore();

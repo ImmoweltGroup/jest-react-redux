@@ -37,7 +37,9 @@ describe('createMapStateToPropsSnapshot()', () => {
     expect(results).toEqual({
       calls: {
         getFoo: {
-          args: [[{__mockState: true}, ownProps]],
+          argsByCallCount: {
+            0: [{__mockState: true}, ownProps]
+          },
           callCount: 1
         }
       },
@@ -67,7 +69,9 @@ describe('createMapStateToPropsSnapshot()', () => {
     expect(results).toEqual({
       calls: {
         getFoo: {
-          args: [[{__mockState: true}, ownProps]],
+          argsByCallCount: {
+            0: [{__mockState: true}, ownProps]
+          },
           callCount: 1
         }
       },
@@ -99,7 +103,9 @@ describe('createMapStateToPropsSnapshot()', () => {
     expect(results).toEqual({
       calls: {
         getFoo: {
-          args: [[{__mockState: true}, ownProps]],
+          argsByCallCount: {
+            0: [{__mockState: true}, ownProps]
+          },
           callCount: 1
         }
       },
@@ -133,7 +139,9 @@ describe('createMapStateToPropsSnapshot()', () => {
     expect(results).toEqual({
       calls: {
         getFoo: {
-          args: [[state, ownProps]],
+          argsByCallCount: {
+            0: [state, ownProps]
+          },
           callCount: 1
         }
       },
