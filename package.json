@@ -5,7 +5,7 @@
   "author": "Immonet dev team <aegaeon@immonet.de> (https://immonet.de)",
   "license": "MIT",
   "description":
-    "Utility functions to make snapshot testing of react-redux (e.g. mapStateToProps or mapDispatchToProps) code with Jest easier.",
+    "Makes snapshot testing of react-redux (e.g. mapStateToProps or mapDispatchToProps) glue-code easy as pie.",
   "main": "./dist/",
   "scripts": {
     "test": "npm run lint && npm run flow && npm run jest:coverage",

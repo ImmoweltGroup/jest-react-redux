@@ -12,7 +12,7 @@ describe('createMapStateToPropsSnapshot()', () => {
   it('should not throw error if no option keys where passed.', () => {
     expect(() =>
       createMapStateToPropsSnapshot({
-        mapStateToProps: jest.fn()
+        mapStateToProps: () => null
       })
     ).not.toThrow();
   });
@@ -30,7 +30,7 @@ describe('createMapStateToPropsSnapshot()', () => {
       selectors,
       ownProps,
       selectorImplementationByKey: {
-        getFoo: jest.fn(() => 'Some mocked value for getFoo')
+        getFoo: () => 'Some mocked value for getFoo'
       }
     });
 
@@ -62,7 +62,7 @@ describe('createMapStateToPropsSnapshot()', () => {
       selectors,
       ownProps,
       selectorImplementationByKey: {
-        getFoo: jest.fn(() => 'Some mocked value for getFoo')
+        getFoo: () => 'Some mocked value for getFoo'
       }
     });
 
@@ -96,7 +96,7 @@ describe('createMapStateToPropsSnapshot()', () => {
       selectors,
       ownProps,
       selectorImplementationByKey: {
-        getFoo: jest.fn(() => 'Some mocked value for getFoo')
+        getFoo: () => 'Some mocked value for getFoo'
       }
     });
 
@@ -132,7 +132,7 @@ describe('createMapStateToPropsSnapshot()', () => {
       ownProps,
       state,
       selectorImplementationByKey: {
-        getFoo: jest.fn(() => 'Some mocked value for getFoo')
+        getFoo: () => 'Some mocked value for getFoo'
       }
     });
 

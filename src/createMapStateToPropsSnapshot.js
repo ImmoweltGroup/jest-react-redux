@@ -15,7 +15,10 @@ type OptsType = {
   state?: Object
 };
 
-function resolveSelectorsObjectForKey(selectors, selectorKey) {
+function resolveSelectorsObjectForKey(
+  selectors: SelectorsMap | Array<SelectorsMap>,
+  selectorKey: string
+): SelectorsMap {
   if (selectors instanceof Array) {
     return selectors.find(selectors => selectors[selectorKey]) || {};
   }
@@ -23,7 +26,9 @@ function resolveSelectorsObjectForKey(selectors, selectorKey) {
   return selectors;
 }
 
-function createMapStateToPropsSnapshot(opts: OptsType) {
+function createMapStateToPropsSnapshot(
+  opts: OptsType
+): {calls: Object, stateProps: Object} {
   const {
     mapStateToProps,
     selectors = {},
