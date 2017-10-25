@@ -1,6 +1,6 @@
 # `createMapStateToPropsSnapshot({mapStateToProps: Function, ...options})`
 
-When unit-testing your `mapStateToProps` function you would want to mock all used selectors to avoid colliding test boundaries. This function automatically mocks all of your selectors with support for mock implementations as well as snapshot testing.
+When unit-testing your `mapStateToProps` function you would want to mock all used selectors to avoid colliding test boundaries. This function automatically takes care of the mocking of all of your selectors with support for mock implementations as well as snapshot testing!
 
 #### Example usage
 Testing your containers is easy, let's create an unit test for the following example `connect` configuration / container file.
@@ -15,6 +15,8 @@ export const mapStateToProps = (state, ownProps) => ({
 });
 export default connect(mapStateToProps)(SomeComponent);
 ```
+
+... and the associated test spec could look like this:
 
 ```js
 import {createMapStateToPropsSnapshot} from 'jest-react-redux';
@@ -39,11 +41,31 @@ describe('mapStateToProps()', () => {
     });
 
     //
-    // The variable `result` contains information about the returned stateProps from the `mapStateToProps` function,
-    // as well as information about the callCount of the mocked selectors and their propagated arguments.
+    // The results returned from the `createMapStateToPropsSnapshot` function contains the following data...
     //
-    //  This makes it ideal to use in combination with Jests snapshot feature!
+    // {
+    //   "calls": {
+    //     "getEstateForId": {
+    //       "argsByCallCount": {
+    //         "0": [
+    //           {
+    //             "__mockState": true,
+    //           },
+    //           {
+    //             "id": "fooEstateId",
+    //           },
+    //         ]
+    //       },
+    //       "callCount": 1,
+    //     }
+    //   },
+    //   "stateProps": {
+    //     "estate": "fooEstateObject",
+    //   }
+    // }
     //
+    // ... which makes it ideal to use in combination with Jests snapshot feature!
+    //  
     expect(result).toMatchSnapshot();
   });
 });

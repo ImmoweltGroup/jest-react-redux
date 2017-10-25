@@ -10,7 +10,7 @@
 > Makes snapshot testing of react-redux (e.g. mapStateToProps or mapDispatchToProps) glue-code easy as pie.
 
 ## Installation
-To install the stable version:
+To install the latest stable version:
 
 ```sh
 # Using npm
