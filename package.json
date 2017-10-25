@@ -25,7 +25,9 @@
       "flow-typed install --ignoreDeps=bundled peer --overwrite",
     "prepare": "npm run flow-typed-install || true",
     "prepublishOnly": "npm run build",
-    "precommit": "lint-staged && npm test"
+    "precommit": "lint-staged && npm test",
+    "semantic-release":
+      "semantic-release pre && npm publish && semantic-release post"
   },
   "lint-staged": {
     "**/*.{js,json,css}": ["prettier --write", "git add"]
@@ -39,6 +41,8 @@
     "@immowelt/eslint-config-immowelt-react": "^2.0.0",
     "@immowelt/jest-preset-node": "^1.0.0",
     "@immowelt/styleguide-javascript": "^1.0.6",
+    "@inkdpixels/commit-analyzer": "^1.0.1",
+    "@inkdpixels/release-notes-generator": "^1.0.1",
     "babel-cli": "^6.26.0",
     "eslint": "^4.4.1",
     "flow-bin": "^0.57.1",
@@ -48,13 +52,18 @@
     "jest": "^21.0.0",
     "lint-staged": "^4.1.2",
     "prettier": "^1.6.1",
-    "rimraf": "^2.6.1"
+    "rimraf": "^2.6.1",
+    "semantic-release": "^8.2.0"
   },
   "jest": {
     "preset": "@immowelt/jest-preset-node"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ImmoweltGroup/jest-preset-react.git"
+    "url": "https://github.com/ImmoweltGroup/jest-react-redux.git"
+  },
+  "release": {
+    "analyzeCommits": "@inkdpixels/commit-analyzer",
+    "generateNotes": "@inkdpixels/release-notes-generator"
   }
 }

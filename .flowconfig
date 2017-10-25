@@ -4,6 +4,8 @@
 #
 [ignore]
 .*\/node_modules\/(?!(log-fancy|@immowelt)\/).*
+.*\/node_modules/npmconf/.*
+.*\/node_modules/config-chain/.*
 <PROJECT_ROOT>/dist/.*
 
 [include]
