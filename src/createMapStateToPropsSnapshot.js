@@ -2,25 +2,35 @@
 
 declare var expect: any;
 declare var jest: any;
+type SelectorsMap = {
+  [string]: Function
+};
 type OptsType = {
   mapStateToProps: Function,
-  selectors?: {
-    [string]: Function
-  },
+  selectors?: SelectorsMap | Array<SelectorsMap>,
   selectorImplementationByKey?: {
     [string]: Function
   },
-  ownProps?: Object
+  ownProps?: Object,
+  state?: Object
 };
+
+function resolveSelectorsObjectForKey(selectors, selectorKey) {
+  if (selectors instanceof Array) {
+    return selectors.find(selectors => selectors[selectorKey]) || {};
+  }
+
+  return selectors;
+}
 
 function createMapStateToPropsSnapshot(opts: OptsType) {
   const {
     mapStateToProps,
     selectors = {},
     selectorImplementationByKey = {},
-    ownProps = {}
+    ownProps = {__mockOwnProps: true},
+    state = {__mockState: true}
   } = opts;
-  const state = {__mockState: true};
   const selectorKeys = Object.keys(selectorImplementationByKey);
   const selectorSpiesByKey = {};
   let stateProps = {};
@@ -36,10 +46,11 @@ function createMapStateToPropsSnapshot(opts: OptsType) {
   // Mock all selectors with the provided implementations.
   //
   selectorKeys.forEach(selectorKey => {
+    const selectorsObj = resolveSelectorsObjectForKey(selectors, selectorKey);
     const implementation = selectorImplementationByKey[selectorKey];
 
     selectorSpiesByKey[selectorKey] = jest
-      .spyOn(selectors, selectorKey)
+      .spyOn(selectorsObj, selectorKey)
       .mockImplementation(implementation);
   });
 
