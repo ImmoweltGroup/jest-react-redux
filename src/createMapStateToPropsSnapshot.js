@@ -1,7 +1,5 @@
 // @flow
 
-declare var expect: any;
-declare var jest: any;
 type SelectorsMap = {
   [string]: Function
 };
@@ -15,16 +13,7 @@ type OptsType = {
   state?: Object
 };
 
-function resolveSelectorsObjectForKey(
-  selectors: SelectorsMap | Array<SelectorsMap>,
-  selectorKey: string
-): SelectorsMap {
-  if (selectors instanceof Array) {
-    return selectors.find(selectors => selectors[selectorKey]) || {};
-  }
-
-  return selectors;
-}
+const resolveMapForKey = require('./lib/resolveMapForKey.js');
 
 function createMapStateToPropsSnapshot(
   opts: OptsType
@@ -51,11 +40,11 @@ function createMapStateToPropsSnapshot(
   // Mock all selectors with the provided implementations.
   //
   selectorKeys.forEach(selectorKey => {
-    const selectorsObj = resolveSelectorsObjectForKey(selectors, selectorKey);
+    const selectorsMap = resolveMapForKey(selectors, selectorKey);
     const implementation = selectorImplementationByKey[selectorKey];
 
     selectorSpiesByKey[selectorKey] = jest
-      .spyOn(selectorsObj, selectorKey)
+      .spyOn(selectorsMap, selectorKey)
       .mockImplementation(implementation);
   });
 

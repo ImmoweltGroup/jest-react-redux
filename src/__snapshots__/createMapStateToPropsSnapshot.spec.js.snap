@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createMapStateToPropsSnapshot() should mock all selectors and return an output that can be easily compared via Jests snapshot feature. 1`] = `
+Object {
+  "calls": Object {
+    "getFoo": Object {
+      "argsByCallCount": Object {
+        "0": Array [
+          Object {
+            "__mockState": true,
+          },
+          Object {
+            "barOwnProp": "bar",
+          },
+        ],
+      },
+      "callCount": 1,
+    },
+  },
+  "stateProps": Object {
+    "foo": "Some mocked value for getFoo",
+  },
+}
+`;
+
+exports[`createMapStateToPropsSnapshot() should support an array of selector maps to be passed. 1`] = `
+Object {
+  "calls": Object {
+    "getFoo": Object {
+      "argsByCallCount": Object {
+        "0": Array [
+          Object {
+            "__mockState": true,
+          },
+          Object {
+            "barOwnProp": "bar",
+          },
+        ],
+      },
+      "callCount": 1,
+    },
+  },
+  "stateProps": Object {
+    "foo": "Some mocked value for getFoo",
+  },
+}
+`;
+
+exports[`createMapStateToPropsSnapshot() should support custom state to be used from the options. 1`] = `
+Object {
+  "calls": Object {
+    "getFoo": Object {
+      "argsByCallCount": Object {
+        "0": Array [
+          Object {
+            "barState": true,
+          },
+          Object {
+            "barOwnProp": "bar",
+          },
+        ],
+      },
+      "callCount": 1,
+    },
+  },
+  "stateProps": Object {
+    "foo": "Some mocked value for getFoo",
+  },
+}
+`;
+
+exports[`createMapStateToPropsSnapshot() should support the mapStateToProps to be a curry-function. 1`] = `
+Object {
+  "calls": Object {
+    "getFoo": Object {
+      "argsByCallCount": Object {
+        "0": Array [
+          Object {
+            "__mockState": true,
+          },
+          Object {
+            "barOwnProp": "bar",
+          },
+        ],
+      },
+      "callCount": 1,
+    },
+  },
+  "stateProps": Object {
+    "foo": "Some mocked value for getFoo",
+  },
+}
+`;

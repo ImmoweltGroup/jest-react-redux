@@ -62,6 +62,18 @@
     "type": "git",
     "url": "https://github.com/ImmoweltGroup/jest-react-redux.git"
   },
+  "keywords": [
+    "jest",
+    "react",
+    "redux",
+    "react-redux",
+    "snapshot",
+    "test",
+    "testing",
+    "unit",
+    "unit-test",
+    "mock"
+  ],
   "release": {
     "analyzeCommits": "@inkdpixels/commit-analyzer",
     "generateNotes": "@inkdpixels/release-notes-generator"

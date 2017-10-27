@@ -13,6 +13,7 @@
 [libs]
 
 [options]
+suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
 
 [lints]
 # all=off by default

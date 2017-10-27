@@ -1,3 +1,5 @@
+// @flow
+
 const createMapStateToPropsSnapshot = require('./createMapStateToPropsSnapshot.js');
 
 describe('createMapStateToPropsSnapshot()', () => {
@@ -6,6 +8,7 @@ describe('createMapStateToPropsSnapshot()', () => {
   });
 
   it('should throw an error if no mapStateToProps function was passed.', () => {
+    // $FlowFixMe: suppressing this error since it is a test case
     expect(() => createMapStateToPropsSnapshot({})).toThrow();
   });
 
@@ -34,22 +37,10 @@ describe('createMapStateToPropsSnapshot()', () => {
       }
     });
 
-    expect(results).toEqual({
-      calls: {
-        getFoo: {
-          argsByCallCount: {
-            0: [{__mockState: true}, ownProps]
-          },
-          callCount: 1
-        }
-      },
-      stateProps: {
-        foo: 'Some mocked value for getFoo'
-      }
-    });
+    expect(results).toMatchSnapshot();
   });
 
-  it('should support the the mapStateToProps function has caching capabilities via the curry-fn concept.', () => {
+  it('should support the mapStateToProps to be a curry-function.', () => {
     const selectors = {
       getFoo: (state, ownProps) => 'foo'
     };
@@ -66,19 +57,7 @@ describe('createMapStateToPropsSnapshot()', () => {
       }
     });
 
-    expect(results).toEqual({
-      calls: {
-        getFoo: {
-          argsByCallCount: {
-            0: [{__mockState: true}, ownProps]
-          },
-          callCount: 1
-        }
-      },
-      stateProps: {
-        foo: 'Some mocked value for getFoo'
-      }
-    });
+    expect(results).toMatchSnapshot();
   });
 
   it('should support an array of selector maps to be passed.', () => {
@@ -100,19 +79,7 @@ describe('createMapStateToPropsSnapshot()', () => {
       }
     });
 
-    expect(results).toEqual({
-      calls: {
-        getFoo: {
-          argsByCallCount: {
-            0: [{__mockState: true}, ownProps]
-          },
-          callCount: 1
-        }
-      },
-      stateProps: {
-        foo: 'Some mocked value for getFoo'
-      }
-    });
+    expect(results).toMatchSnapshot();
   });
 
   it('should support custom state to be used from the options.', () => {
@@ -136,18 +103,6 @@ describe('createMapStateToPropsSnapshot()', () => {
       }
     });
 
-    expect(results).toEqual({
-      calls: {
-        getFoo: {
-          argsByCallCount: {
-            0: [state, ownProps]
-          },
-          callCount: 1
-        }
-      },
-      stateProps: {
-        foo: 'Some mocked value for getFoo'
-      }
-    });
+    expect(results).toMatchSnapshot();
   });
 });
