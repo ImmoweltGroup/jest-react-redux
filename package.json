@@ -4,8 +4,7 @@
   "private": false,
   "author": "Immonet dev team <aegaeon@immonet.de> (https://immonet.de)",
   "license": "MIT",
-  "description":
-    "Makes snapshot testing of react-redux (e.g. mapStateToProps or mapDispatchToProps) glue-code easy as pie.",
+  "description": "Makes snapshot testing of react-redux (e.g. mapStateToProps or mapDispatchToProps) glue-code easy as pie.",
   "main": "./dist/",
   "scripts": {
     "test": "npm run lint && npm run flow && npm run jest:coverage",
@@ -21,16 +20,17 @@
     "build": "npm run build:babel && npm run build:flow",
     "flow": "flow",
     "flow-typed": "flow-typed",
-    "flow-typed-install":
-      "flow-typed install --ignoreDeps=bundled peer --overwrite",
+    "flow-typed-install": "flow-typed install --ignoreDeps=bundled peer --overwrite",
     "prepare": "npm run flow-typed-install || true",
     "prepublishOnly": "npm run build",
     "precommit": "lint-staged && npm test",
-    "semantic-release":
-      "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "lint-staged": {
-    "**/*.{js,json,css}": ["prettier --write", "git add"]
+    "**/*.{js,json,css}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "engines": {
     "node": ">=8.2.0",
