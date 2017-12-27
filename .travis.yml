@@ -5,8 +5,10 @@ cache:
     - node_modules
 notifications:
   email: false
+install:
+  - yarn
 after_success:
-  - npm run semantic-release
+  - yarn run semantic-release
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
