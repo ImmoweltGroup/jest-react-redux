@@ -10,28 +10,28 @@
 > Makes snapshot testing of react-redux (e.g. mapStateToProps or mapDispatchToProps) glue-code easy as pie.
 
 ## Installation
+
 To install the latest stable version:
 
 ```sh
-# Using npm
-npm install --save-dev jest-react-redux
-
-# or using yarn
 yarn add --dev jest-react-redux
 ```
 
 ## Features
+
 * Automatically mocks impure function usages (selectors) within `mapStateToProps`.
 * Creates easily readable results which you can use with Jests snapshot feature.
 * Creates less headaches while writing good tests for your `react-redux` glue-code.
 
 ## Documentation
+
 * [Introduction](/docs/introduction/README.md)
 * [API](/docs/api/README.md)
-* [FAQ](/docs/api/FAQ.md)
 
 ## Contributing
+
 See the `CONTRIBUTING.md` file at the root of the repository.
 
 ## Licensing
+
 See the `LICENSE` file at the root of the repository.

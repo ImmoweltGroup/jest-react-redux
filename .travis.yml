@@ -5,10 +5,16 @@ cache:
     - node_modules
 notifications:
   email: false
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.6.0
+  - export PATH="$HOME/.yarn/bin:$PATH"
 install:
   - yarn
+script:
+  - yarn lint
+  - yarn test --coverage
 after_success:
-  - yarn run semantic-release
+  - yarn release
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
