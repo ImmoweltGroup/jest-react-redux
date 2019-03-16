@@ -45,14 +45,14 @@ describe('mapStateToProps()', () => {
     //
     // {
     //   "calls": {
-    //     "getEstateForId": {
+    //     "getSomeValueFromTheStore": {
     //       "argsByCallCount": {
     //         "0": [
     //           {
     //             "__mockState": true,
     //           },
     //           {
-    //             "id": "fooEstateId",
+    //             "id": "some mocked id",
     //           },
     //         ]
     //       },
@@ -60,7 +60,7 @@ describe('mapStateToProps()', () => {
     //     }
     //   },
     //   "stateProps": {
-    //     "estate": "fooEstateObject",
+    //     "someValue": "some mocked value from the store",
     //   }
     // }
     //
